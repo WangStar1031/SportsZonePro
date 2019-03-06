@@ -39,7 +39,6 @@
         }
         #donateContents{
             position: relative;
-            /*height: 100px;*/
         }
         #puffin{
             color: white;
@@ -120,13 +119,9 @@
                 document.getElementById("donateContents").style.display = "block";
             }
             var height = document.getElementById("donationImg").height + 20;
-            // console.log(height);
             document.getElementById("donateContents").style.height = height + "px";
-            console.log(height);
             var bottom = document.getElementById("puffin").offsetHeight;
-            console.log(bottom);
             var nHeight =  height * 1 + bottom * 1 + 155;
-            console.log(nHeight);
             document.getElementById("XSportZonePlayer").style.height = "calc( 100vh - " + nHeight + "px)";
         }
         donateResize();
