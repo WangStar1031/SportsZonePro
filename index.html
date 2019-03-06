@@ -16,44 +16,46 @@
         }
         .donation{
             text-align: center;
+            color: white;
         }
         .donation a{
             text-decoration: none;
             color: white;
-            /*font-size: 1.3em;*/
-            /*width: 100%;*/
         }
         .donation img{
             width: 100%;
             padding: 10px;
         }
+        .donation a p{
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+        #donateContents{
+            position: relative;
+            /*height: 100px;*/
+        }
     </style>
 </head>
-<body class="container">
+<body class="container" onresize="donateResize()">
     <div class="donation col-lg-12 col-md-12 col-xs-12">
         <a target="_blank" href="https://www.paypal.me/sportszonepro/10/">
             <div class="row">
                 <div class="col-lg-3 col-md-2">
                 </div>
-                <div class="col-lg-6 col-md-8 col-xs-12">
-                    <table style="width: 100%;">
-                        <tr>
-                            <td>
-                                Enjoying our live sports coverage?
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Your kind donation of 10USD will help maintain our servers to run this site for you for as long as we can!
-                            </td>
-                        </tr>
-                    </table>
-                    <!-- <span class="span1">Enjoying our live sports coverage?</span><br> -->
-                    <!-- <span class="span2">Your kind donation of 10USD will help maintain our servers to run this site for you for as long as we can!</span> -->
+                <div class="col-lg-6 col-md-8 col-xs-0" id="donateContents">
+                    <p>
+                        Enjoying our live sports coverage?
+                        Your kind donation of 10USD will help maintain our servers to run this site for you for as long as we can!
+                    </p>
                 </div>
                 <div class="col-lg-3 col-md-2 col-xs-12">
                     <div class="row">
-                        <img src="download.jpeg">
+                        <img src="download.jpeg" id="donationImg">
                     </div>
                 </div>
             </div>
@@ -78,4 +80,17 @@
     <div>
         Want to stream on your iPhone or Android? Download Puffin Web Browser and open our website Sportszone.pro on it.
     </div>
+    <script type="text/javascript">
+        function donateResize(){
+            if( document.body.offsetWidth < 970){
+                document.getElementById("donateContents").style.display = "none";
+            } else{
+                document.getElementById("donateContents").style.display = "block";
+            }
+            var height = document.getElementById("donationImg").height + 20;
+            // console.log(height);
+            document.getElementById("donateContents").style.height = height + "px";
+        }
+        donateResize();
+    </script>
 </body>
