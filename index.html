@@ -53,7 +53,7 @@
     </style>
 </head>
 <body class="container" onresize="donateResize()">
-    <div class="donation col-lg-12 col-md-12 col-xs-12">
+    <div class="donation col-lg-12 col-md-12 col-xs-12" id="donation">
         <a target="_blank" href="https://www.paypal.me/sportszonepro/10/">
             <div class="row">
                 <div class="col-lg-3 col-md-2">
@@ -94,7 +94,7 @@
                 <div class="col-lg-1 col-md-1 col-xs-2">
                     <img src="puffin.jpg" style="border-radius: 100%; width: 44px;">
                 </div>
-                <div class="col-lg-7 col-md-7">
+                <div class="col-lg-7 col-md-7" id="puffinContents">
                     Want to stream on your iPhone or Android? Download Puffin Web Browser and open our website Sportszone.pro on it.
                 </div>
                 <div class="col-lg-2 col-md-2 col-xs-5">
@@ -115,8 +115,21 @@
         function donateResize(){
             if( document.body.offsetWidth < 970){
                 document.getElementById("donateContents").style.display = "none";
+                document.getElementById("puffinContents").style.display = "none";
+                if( document.body.offsetHeight < document.body.offsetWidth){
+                    document.getElementById("donation").style.display = "none";
+                    document.getElementById("puffin").style.display = "none";
+                    document.getElementById("XSportZonePlayer").style.height = "100vh";
+                    return;
+                } else{
+                    document.getElementById("donation").style.display = "block";
+                    document.getElementById("puffin").style.display = "block";
+                }
             } else{
+                document.getElementById("donation").style.display = "block";
+                document.getElementById("puffin").style.display = "block";
                 document.getElementById("donateContents").style.display = "block";
+                document.getElementById("puffinContents").style.display = "block";
             }
             var height = document.getElementById("donationImg").height + 20;
             document.getElementById("donateContents").style.height = height + "px";
